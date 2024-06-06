@@ -8,34 +8,37 @@ Gem::Specification.new do |spec|
   spec.authors = ["Mrudul John"]
   spec.email = ["mrudulmathews@gmail.com"]
 
-  spec.summary = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description = "TODO: Write a longer description or delete this line."
-  spec.homepage = "TODO: Put your gem's website or public repo URL here."
-  spec.license = "MIT"
+  spec.summary       = "A Ruby gem to Generate Project Development Walkthrough with the AwanLLM API."
+  spec.description   = "{UNDER DEVELOPMENT NOT FOR USE YET}A Ruby gem to generate a walkthrough the project lifecycle with the AwanLLM API for generating and retrieving content."
+  spec.homepage      = "https://github.com/mruduljohn/Walkthrough_awanllm_gem"
+  spec.license       = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
-
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  gemspec = File.basename(__FILE__)
   spec.files = IO.popen(%w[git ls-files -z], chdir: __dir__, err: IO::NULL) do |ls|
     ls.readlines("\x0", chomp: true).reject do |f|
-      (f == gemspec) ||
-        f.start_with?(*%w[bin/ test/ spec/ features/ .git appveyor Gemfile])
+      f.start_with?(*%w[bin/ test/ spec/ features/ .git appveyor Gemfile])
     end
-  end
-  spec.bindir = "exe"
-  spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
+  end + [
+    "lib/walkthrough_awanllm.rb",
+    "lib/walkthrough_awanllm/railtie.rb",
+    "lib/walkthrough_awanllm/version.rb",
+    "bin/setup_awanllm.rb", # Include setup_awanllm.rb file
+  ]
+
+  spec.bindir = "bin"
+  spec.executables = ["setup_awanllm.rb"]
   spec.require_paths = ["lib"]
-
-  # Uncomment to register a new dependency of your gem
-  # spec.add_dependency "example-gem", "~> 1.0"
-
-  # For more information and examples about making a new gem, check out our
-  # guide at: https://bundler.io/guides/creating_gem.html
+  spec.add_dependency "httparty"
+  spec.add_development_dependency "bundler", "~> 2.0"
+  spec.add_development_dependency "rake", "~> 13.0"
+  spec.add_development_dependency "minitest", "~> 5.0"
+  spec.post_install_message = <<-MESSAGE
+    Thank you for installing the AwanLLM gem!
+    To complete the setup, please run the following command:
+    setup_awanllm
+  MESSAGE
 end
