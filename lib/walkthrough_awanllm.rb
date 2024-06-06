@@ -1,6 +1,8 @@
 require 'httparty'
 require 'json'
 require 'walkthorugh_awanllm/railtie' if defined?(Rails)
+require_relative "walkthrough_awanllm/cli"
+require_relative "walkthrough_awanllm/version"
 
 class AwanLLM
   include HTTParty
@@ -63,7 +65,9 @@ class AwanLLM
     if File.exist?('config/awanllm_config.json')
       puts 'Walkthrough_AwanLLM gem is already configured.'
     else
-      system('ruby setup_awanllm')
+      ruby_version = RUBY_VERSION.split('.').first(2).join('.')
+      path_to_script = "./vendor/bundle/ruby/#{ruby_version}/gems/walkthrough_awanllm-0.1.16/bin/setup_awanllm.rb"
+      system("ruby #{path_to_script}")
     end
   end
 

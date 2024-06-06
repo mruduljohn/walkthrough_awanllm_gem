@@ -1,34 +1,83 @@
+Here's an updated README for your gem `walkthrough_awanllm`, including all necessary installation and usage instructions, as well as development and contributing guidelines.
+
+```markdown
 # WalkthroughAwanllm
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/walkthrough_awanllm`. To experiment with that code, run `bin/console` for an interactive prompt.
+A Ruby gem to generate a project development walkthrough with the AwanLLM API. This gem helps you log activities and generate detailed walkthroughs of your project's lifecycle.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+Add this line to your application's Gemfile:
 
-Install the gem and add to the application's Gemfile by executing:
+```ruby
+gem 'walkthrough_awanllm'
+```
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+And then execute:
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+```sh
+$ bundle install
+```
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+Or install it yourself as:
+
+```sh
+$ gem install walkthrough_awanllm
+```
+
+## Setup
+
+After installing the gem, you need to configure it by running the setup script. This will prompt you for your AwanLLM API key and the model name you wish to use.
+
+```sh
+$ ruby ./vendor/bundle/ruby/YOUR_VERSION/gems/walkthrough_awanllm-0.1.16/bin/setup_awanllm.rb
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+### Generating Content
+
+To generate content using the AwanLLM API, you can create an instance of the `AwanLLM` class and call its methods:
+
+```ruby
+require 'walkthrough_awanllm'
+
+llm = AwanLLM.new
+response = llm.generate_content(prompt: "Generate some content based on this prompt.")
+puts response
+```
+
+### Generating a Walkthrough
+
+To generate a detailed walkthrough of your project's activities:
+
+```ruby
+llm.generate_walkthrough
+```
+
+This will read the activity log and generate a `walkthrough.md` file in the project's root directory.
 
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run:
+
+```sh
+$ bundle exec rake install
+```
+
+To release a new version, update the version number in `version.rb`, and then run:
+
+```sh
+$ bundle exec rake release
+```
+
+This will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/walkthrough_awanllm. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/walkthrough_awanllm/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/mruduljohn/walkthrough_awanllm. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/mruduljohn/walkthrough_awanllm/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -36,4 +85,5 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the WalkthroughAwanllm project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/walkthrough_awanllm/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the WalkthroughAwanllm project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/mruduljohn/walkthrough_awanllm/blob/master/CODE_OF_CONDUCT.md).
+```

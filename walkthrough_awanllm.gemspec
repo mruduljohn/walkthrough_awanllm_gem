@@ -33,12 +33,13 @@ Gem::Specification.new do |spec|
   spec.executables = ["setup_awanllm.rb"]
   spec.require_paths = ["lib"]
   spec.add_dependency "httparty"
+  spec.add_dependency "thor"
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "minitest", "~> 5.0"
   spec.post_install_message = <<-MESSAGE
-    Thank you for installing the AwanLLM gem!
+    Thank you for installing the Walkthrough_AwanLLM gem!
     To complete the setup, please run the following command:
-    setup_awanllm
+    ruby ./vendor/bundle/ruby/#{RUBY_VERSION.split('.').first(3).join('.')}/gems/walkthrough_awanllm-0.1.16/bin/setup_awanllm.rb
   MESSAGE
 end
