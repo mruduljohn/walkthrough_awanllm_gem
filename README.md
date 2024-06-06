@@ -1,5 +1,7 @@
-Here's an updated README for your gem `walkthrough_awanllm`, including all necessary installation and usage instructions, as well as development and contributing guidelines.
+Here's an updated README for your gem `walkthrough_awanllm`, including all necessary installation and usage instructions, as well as development and contributing guidelines. All credits for AwanLLM goes to the orginal creators of API for offering a free tier. 
 
+### Email: contact.awanllm@gmail.com
+### https://www.awanllm.com/
 ```markdown
 # WalkthroughAwanllm
 
@@ -30,31 +32,27 @@ $ gem install walkthrough_awanllm
 After installing the gem, you need to configure it by running the setup script. This will prompt you for your AwanLLM API key and the model name you wish to use.
 
 ```sh
-$ ruby ./vendor/bundle/ruby/YOUR_VERSION/gems/walkthrough_awanllm-0.1.16/bin/setup_awanllm.rb
+$ ruby ./vendor/bundle/ruby/YOUR_VERSION/gems/walkthrough_awanllm-0.2.12/bin/setup_awanllm.rb
 ```
+
+Get API key from https://www.awanllm.com/
 
 ## Usage
 
-### Generating Content
-
-To generate content using the AwanLLM API, you can create an instance of the `AwanLLM` class and call its methods:
-
-```ruby
-require 'walkthrough_awanllm'
-
-llm = AwanLLM.new
-response = llm.generate_content(prompt: "Generate some content based on this prompt.")
-puts response
-```
 
 ### Generating a Walkthrough
 
 To generate a detailed walkthrough of your project's activities:
 
 ```ruby
-llm.generate_walkthrough
+rails console
+> awanllm = WalkthroughAwanllm::AwanLLM.new
+> awanllm.generate_walkthrough
 ```
-
+(IF ABOVE IS NOT WORKING) by running :
+```ruby
+rails awanllm:generate_walkthrough
+```
 This will read the activity log and generate a `walkthrough.md` file in the project's root directory.
 
 ## Development
