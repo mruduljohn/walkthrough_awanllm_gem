@@ -32,7 +32,7 @@ $ gem install walkthrough_awanllm
 After installing the gem, you need to configure it by running the setup script. This will prompt you for your AwanLLM API key and the model name you wish to use.
 
 ```sh
-$ ruby ./vendor/bundle/ruby/YOUR_VERSION/gems/walkthrough_awanllm-0.2.12/bin/setup_awanllm.rb
+$ ruby ./vendor/bundle/ruby/YOUR_VERSION/gems/walkthrough_awanllm-0.2.13/bin/setup_awanllm.rb
 ```
 
 Get API key from https://www.awanllm.com/

@@ -24,7 +24,7 @@ bundle exec rails runner "AwanLLM::Tracker.new.update_activity_log"
 
       # Write the Git hook script
       File.open(git_hook_script_path, "w") { |f| f.write(git_hook_script_content) }
-      FileUtils.chmod(0755, git_hook_script_path)
+      FileUtils.chmod(0744, git_hook_script_path)
 
       # Inform the user about the setup
       puts "Git hook for tracking activity log updates has been set up: #{git_hook_script_path}"

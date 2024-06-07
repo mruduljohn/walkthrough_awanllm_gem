@@ -131,7 +131,7 @@ module WalkthroughAwanllm
         puts 'Walkthrough_AwanLLM gem is already configured.'
       else
         ruby_version = RUBY_VERSION.split('.').first(3).join('.')
-        path_to_script = "./vendor/bundle/ruby/#{ruby_version}/gems/walkthrough_awanllm-0.2.12/bin/setup_awanllm.rb"
+        path_to_script = "./vendor/bundle/ruby/#{ruby_version}/gems/walkthrough_awanllm-0.2.13/bin/setup_awanllm.rb"
         system("ruby #{path_to_script}")
       end
     end
